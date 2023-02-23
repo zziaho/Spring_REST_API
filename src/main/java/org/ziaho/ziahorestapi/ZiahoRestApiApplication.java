@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ZiahoRestApiApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ZiahoRestApiApplication.class, args);
 	}
 
