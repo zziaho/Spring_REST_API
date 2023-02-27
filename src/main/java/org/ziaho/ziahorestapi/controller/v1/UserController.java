@@ -1,8 +1,12 @@
 package org.ziaho.ziahorestapi.controller.v1;
 
-import io.swagger.annotations.ApiParam;
+//import io.swagger.annotations.ApiParam;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.ziaho.ziahorestapi.entity.User;
 import org.ziaho.ziahorestapi.repo.UserJpaRepo;
 
@@ -27,8 +31,8 @@ public class UserController {
 
 //    @ApiOperation(value = "회원 입력", notes = "모든 회원을 입력한다.") // 각각의 리소스에 제목과 설명을 표시하기 위해 세팅합니다.
     @PostMapping(value = "/user")
-    public User save(@ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
-                     @ApiParam(value = "이름", required = true) @RequestParam String name) { // 파라미터에 대한 설명을 보여주기 위해 세팅합니다.
+    public User save(/* @ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
+                     @ApiParam(value = "이름", required = true) @RequestParam String name */ ) { // 파라미터에 대한 설명을 보여주기 위해 세팅합니다.
         // user 테이블에 데이터 1건을 입력합니다.
         // Jpa를 사용하면 기본적으로 CRUD에 대해서는 별다른 설정없이 쿼리를 질의할 수 있도록 메소드를 지원합니다.
         // insert into user(msrl, name, uid) values(null, ?, ?)와 같음
