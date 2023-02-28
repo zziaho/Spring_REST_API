@@ -1,0 +1,18 @@
+// 기존 User 정보
+{
+    "msrl": 1,
+    "uid": "test@test.com",
+    "name": "테스트"
+}
+
+// 표준화한 USER 정보
+{
+    "data": {
+        "msrl": 1,
+        "uid": "test@test.com",
+        "name": "테스트"
+    },
+    "success": true,
+    "code": 0,
+    "message": "성공하였습니다."
+}
