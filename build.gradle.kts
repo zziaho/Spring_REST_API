@@ -32,8 +32,14 @@ dependencies {
 	// testImplementation("org.springframework.security:spring-security-test")
 	implementation("org.springframework.boot:spring-boot-starter-freemarker")
 	runtimeOnly("com.h2database:h2")
+
+	// swagger
 //	implementation("io.springfox:springfox-boot-starter:3.0.0")
 //	implementation("io.springfox:springfox-swagger-ui:3.0.0")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.0.2")
+
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
 tasks.withType<Test> {
