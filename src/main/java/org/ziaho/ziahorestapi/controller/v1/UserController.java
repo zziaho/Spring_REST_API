@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.ziaho.ziahorestapi.advice.exception.CUserNotFoundException;
 import org.ziaho.ziahorestapi.entity.User;
 import org.ziaho.ziahorestapi.model.response.CommonResult;
 import org.ziaho.ziahorestapi.model.response.ListResult;
@@ -38,7 +39,7 @@ public class UserController {
     @GetMapping(value = "/user/{msrl}")
     public SingleResult<User> findUserById(@Parameter(name = "회원번호", required = true) @PathVariable long msrl) throws Exception {
         // 결과 데이터가 단일건인 경우 getSingleResult를 이용하여 결과를 출력
-        return responseService.getSingleResult(userJpaRepo.findById(msrl).orElseThrow(Exception::new));
+        return responseService.getSingleResult(userJpaRepo.findById(msrl).orElseThrow(CUserNotFoundException::new));
     }
 
     @Operation(summary = "회원 입력", description = "회원을 입력한다.") // 각각의 리소스에 제목과 설명을 표시하기 위해 세팅합니다.
