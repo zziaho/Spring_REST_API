@@ -36,9 +36,9 @@ public class UserController {
 
     @Operation(summary = "회원 단건 조회", description = "msrl로 회원을 조회한다.")
     @GetMapping(value = "/user/{msrl}")
-    public SingleResult<User> findUserById(@Parameter(name = "회원번호", required = true) @PathVariable long msrl) {
+    public SingleResult<User> findUserById(@Parameter(name = "회원번호", required = true) @PathVariable long msrl) throws Exception {
         // 결과 데이터가 단일건인 경우 getSingleResult를 이용하여 결과를 출력
-        return responseService.getSingleResult(userJpaRepo.findById(msrl).orElse(null));
+        return responseService.getSingleResult(userJpaRepo.findById(msrl).orElseThrow(Exception::new));
     }
 
     @Operation(summary = "회원 입력", description = "회원을 입력한다.") // 각각의 리소스에 제목과 설명을 표시하기 위해 세팅합니다.
