@@ -37,9 +37,13 @@ dependencies {
 //	implementation("io.springfox:springfox-boot-starter:3.0.0")
 //	implementation("io.springfox:springfox-swagger-ui:3.0.0")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
-	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.0.2")
+//	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.0.2")
 
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+
+	// message properties를 yml로 작성하기 위한 라이브러리 추가
+	implementation("net.rakugakibox.util:yaml-resource-bundle:1.1")
+
 }
 
 tasks.withType<Test> {
