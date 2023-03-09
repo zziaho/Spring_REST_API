@@ -37,7 +37,8 @@ public class UserController {
 
     @Operation(summary = "회원 단건 조회", description = "msrl로 회원을 조회한다.")
     @GetMapping(value = "/user/{msrl}")
-    public SingleResult<User> findUserById(@Parameter(name = "회원번호", required = true) @PathVariable long msrl) throws Exception {
+    public SingleResult<User> findUserById(@Parameter(name = "회원번호", required = true) @PathVariable long msrl,
+                                           @Parameter(name = "언어") @RequestParam(value = "lang") String lang) throws Exception {
         // 결과 데이터가 단일건인 경우 getSingleResult를 이용하여 결과를 출력
         return responseService.getSingleResult(userJpaRepo.findById(msrl).orElseThrow(CUserNotFoundException::new));
     }
