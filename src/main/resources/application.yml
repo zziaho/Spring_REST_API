@@ -13,6 +13,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     properties.hibernate.hbm2ddl.auto: update
     showSql: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+    cache-duration: 3
