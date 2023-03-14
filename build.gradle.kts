@@ -22,16 +22,19 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
-	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.security:spring-security-test")
 	implementation("org.springframework.boot:spring-boot-starter-freemarker")
 	runtimeOnly("com.h2database:h2")
+
+	// SpringSecurity & JWT
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	testImplementation("org.springframework.security:spring-security-test")
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
 
 	// swagger
 //	implementation("io.springfox:springfox-boot-starter:3.0.0")
@@ -41,7 +44,7 @@ dependencies {
 
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 
-	// message properties를 yml로 작성하기 위한 라이브러리 추가
+	// message properties를 yml로 작성하기 위한 라이브러리
 	implementation("net.rakugakibox.util:yaml-resource-bundle:1.1")
 
 }
