@@ -16,4 +16,5 @@ spring:
   messages:
     basename: i18n/exception
     encoding: UTF-8
-    cache-duration: 3
+  jwt:
+    secret: ziaho0842248723
