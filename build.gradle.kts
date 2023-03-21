@@ -47,6 +47,8 @@ dependencies {
 	// message properties를 yml로 작성하기 위한 라이브러리
 	implementation("net.rakugakibox.util:yaml-resource-bundle:1.1")
 
+	// DatatypeConverter 에러 해결
+	implementation("javax.xml.bind:jaxb-api:2.3.0")
 }
 
 tasks.withType<Test> {
