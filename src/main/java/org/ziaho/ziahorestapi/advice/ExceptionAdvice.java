@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.ziaho.ziahorestapi.advice.exception.CEmailSigninFailedException;
 import org.ziaho.ziahorestapi.advice.exception.CUserNotFoundException;
 import org.ziaho.ziahorestapi.model.response.CommonResult;
 import org.ziaho.ziahorestapi.service.ResponseService;
@@ -30,14 +31,14 @@ public class ExceptionAdvice {
 //        return responseService.getFailResult();
 //    }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    protected CommonResult defaultException(HttpServletRequest request,
-                                            Exception e) {
-        return responseService.getFailResult(Integer.parseInt(getMessage("unKnown.code")),
-                getMessage("unKnown.message")
-        );
-    }
+//    @ExceptionHandler(Exception.class)
+//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//    protected CommonResult defaultException(HttpServletRequest request,
+//                                            Exception e) {
+//        return responseService.getFailResult(Integer.parseInt(getMessage("unKnown.code")),
+//                getMessage("unKnown.message")
+//        );
+//    }
 
     @ExceptionHandler(CUserNotFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -46,6 +47,14 @@ public class ExceptionAdvice {
                 Integer.parseInt(getMessage("userNotFound.code")),
                 getMessage("userNotFound.message")
         );
+    }
+
+    @ExceptionHandler(CEmailSigninFailedException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    protected CommonResult emailSigninFailed(HttpServletRequest request, CEmailSigninFailedException e) {
+        return responseService.getFailResult(
+                Integer.valueOf(getMessage("emailSigninFailed.code")),
+                getMessage("emailSigninFailed.message"));
     }
 
     // code 정보에 해당하는 메시지를 조회합니다.
