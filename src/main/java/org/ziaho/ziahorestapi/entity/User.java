@@ -50,6 +50,7 @@ public class User implements UserDetails {
         return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Override
     public String getUsername() {
         return this.uid;
