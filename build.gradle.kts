@@ -49,6 +49,11 @@ dependencies {
 
 	// DatatypeConverter 에러 해결
 	implementation("javax.xml.bind:jaxb-api:2.3.0")
+
+	// Spring Starter Unit Test
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.security:spring-security-test")
+
 }
 
 tasks.withType<Test> {
